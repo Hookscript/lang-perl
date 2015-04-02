@@ -1,0 +1,3 @@
+use Hookscript;
+
+my $variable =
