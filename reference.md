@@ -11,7 +11,7 @@ Each Perl script should begin with `use Hookscript`.  Importing this module does
   * `use feature ":5.20"`
   * exports `$req` representing the incoming HTTP request
   * exports `$res` representing the script's HTTP response
-  * exports `$state` whose value is persistend across script invocations
+  * exports `$state` whose value is persisted across script invocations
 
 ## HTTP Request
 
