@@ -24,3 +24,6 @@ A script doesn't need an explicit response variable.  Anything sent to the curre
 becomes the HTTP response body.  However, if you want to modify HTTP response headers, you can call methods
 on `$res`.  This is a [Mojo::Message::Response](https://metacpan.org/pod/Mojo::Message::Response) value.
 
+## State
+
+The Hookscript module exports a variable named `$state`.  The value of this variable is retained across script executions.  The first time your script runs, it has the value `undef`.  You can store any value in this variable as long as `Data::Dumper` can serialize it.  It could be an integer, a hashref, a complex object, etc.
