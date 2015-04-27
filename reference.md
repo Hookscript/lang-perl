@@ -27,3 +27,7 @@ on `$res`.  This is a [Mojo::Message::Response](https://metacpan.org/pod/Mojo::M
 ## State
 
 The Hookscript module exports a variable named `$state`.  The value of this variable is retained across script executions.  The first time your script runs, it has the value `undef`.  You can store any value in this variable as long as `Data::Dumper` can serialize it.  It could be an integer, a hashref, a complex object, etc.
+
+## CPAN modules
+
+A script can use any module included in Perl's standard library or listed in our [cpanfile](https://github.com/Hookscript/lang-perl/blob/master/cpanfile).  If you want to use other modules, you can use [App::fatten](https://metacpan.org/pod/App::fatten) to bundle those dependencies as part of your script.  Just paste the fattened script into Hookscript.
