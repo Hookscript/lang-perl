@@ -31,3 +31,31 @@ The Hookscript module exports a variable named `$state`.  The value of this vari
 ## CPAN modules
 
 A script can use any module included in Perl's standard library or listed in our [cpanfile](https://github.com/Hookscript/lang-perl/blob/master/cpanfile).  If you want to use other modules, you can use [App::fatten](https://metacpan.org/pod/App::fatten) to bundle those dependencies as part of your script.  Just paste the fattened script into Hookscript.
+
+## Tips
+
+Here are some tips that you might find useful when working with Perl scripts
+on Hookscript.
+
+### File uploads
+
+If the incoming HTTP request contains a file upload, maybe from an HTML form
+with `<input type=file>`, how do you access the uploaded file content?
+
+If the uploaded content is small enough to fit into memory, the easiest way is
+
+```perl
+my $content = $req->upload('parameter_name')->asset->slurp;
+```
+
+The `$req` variable is a [Mojo::Message::Request](https://metacpan.org/pod/Mojo::Message::Request). So you can see that documentation for all the details.  Be sure to check the documentation for parent classes too.
+
+### Request body
+
+To access the raw request body, assuming it fits into memory, you can use:
+
+```perl
+my $body = $req->content->asset->slurp;
+```
+
+See the documentation for [Mojo::Message::Request](https://metacpan.org/pod/Mojo::Message::Request) for other variations.
